@@ -4,6 +4,17 @@
 
 class WeatherData
 {
+ private:
+ unsigned int _weatherTime;
+ int _greenhouseTemp;
+ int _greenhouseHumidity;
+ int _backupGreenhouseTemp;
+ int _backupGreenhouseHumidity;
+ int _outsideTemp;
+ int _outsideHumidity;
+ int _high;
+ int _low;
+ 
  public:
  unsigned int weatherTime;
  int greenhouseTemp;
@@ -18,7 +29,7 @@ class WeatherData
  
  
  void message(int);
- void weatherData(unsigned int, int, int,int,int,int,int,int,int);
+ void weatherData(unsigned int, int, int, int, int, int, int, int, int);
  void init();
   
 };
