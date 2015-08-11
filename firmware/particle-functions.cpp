@@ -1,5 +1,5 @@
 # include "particle-functions.h"
-
+# include <application.h>
 
 void WeatherData :: message(int data)     // defined outside class definition
 {
@@ -25,6 +25,6 @@ void WeatherData :: weatherData(unsigned int weatherTime, int greenhouseTemp,int
 
 void WeatherData :: init()
 {
- 
+ Spark.function("ghData",greenhouseData);
 }
  
