@@ -8,17 +8,17 @@ class WeatherData
  unsigned int weatherTime;
  int greenhouseTemp;
  int greenhouseHumidity;
- int outsideTemp;
- int outsideHumidity;
  int backupGreenhouseTemp;
  int backupGreenhouseHumidity;
+ int outsideTemp;
+ int outsideHumidity;
  int high;
  int low;
  
  
  
  void message(int);
- void weatherData();
+ void weatherData(unsigned int, int, int,int,int,int,int,int,int);
  void init();
   
 };
