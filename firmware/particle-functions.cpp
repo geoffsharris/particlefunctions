@@ -1,5 +1,4 @@
 # include "particle-functions.h"
-# include <application.h>
 
 
 void WeatherData :: message(int data)     // defined outside class definition
@@ -11,9 +10,9 @@ void WeatherData :: message(int data)     // defined outside class definition
 void WeatherData :: weatherData()
     {
   
-    Serial.print("Timestamp: "); Serial.println(weather_time);
-    Serial.print("Temp (F): "); Serial.println(GH_temp);
-    Serial.print("Humidity (%): "); Serial.println(GH_humidity);
+    Serial.print("Timestamp: "); Serial.println(weatherTime);
+    Serial.print("Temp (F): "); Serial.println(greenhouseTemp);
+    Serial.print("Humidity (%): "); Serial.println(greenhouseHumidity);
 
 }
 
