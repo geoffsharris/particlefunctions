@@ -2,13 +2,13 @@
 # include <application.h>
 
 
-void Weatherdata :: message(int data)     // defined outside class definition
+void WeatherData :: message(int data)     // defined outside class definition
 {
  Serial.print(data);
  Serial.println(" F - current Temperature");
 }
 
-void Weatherdata :: weatherData()
+void WeatherData :: weatherData()
     {
   
     Serial.print("Timestamp: "); Serial.println(weather_time);
@@ -17,5 +17,8 @@ void Weatherdata :: weatherData()
 
 }
 
-
+void WeatherData :: init()
+{
+ 
+}
  
