@@ -3,9 +3,9 @@
 
 void WeatherData :: message(int data)     // defined outside class definition
 {
- Serial.print("Timestamp: "); Serial.println(weatherTime);
- Serial.print("Temp (F): "); Serial.println(greenhouseTemp);
- Serial.print("Humidity (%): "); Serial.println(greenhouseHumidity);
+ Serial.print("Timestamp: "); Serial.println(_weatherTime);
+ Serial.print("Temp (F): "); Serial.println(_greenhouseTemp);
+ Serial.print("Humidity (%): "); Serial.println(_greenhouseHumidity);
 }
 
 void WeatherData :: weatherData(unsigned int weatherTime, int greenhouseTemp,int greenhouseHumidity,
