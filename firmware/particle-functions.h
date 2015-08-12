@@ -6,6 +6,7 @@ class WeatherData
 {
  public:
  // constructors
+ void weatherData();
  void weatherData(unsigned int weatherTime, int greenhouseTemp,int greenhouseHumidity,
                   int backupGreenhouseTemp, int backupGreenhouseHumidity,int outsideTemp,
                   int outsideHumidity, int high, int low);
@@ -25,5 +26,7 @@ class WeatherData
  int _low;
   
 };
+
+int greenhouseData(String command);
 
 #endif
