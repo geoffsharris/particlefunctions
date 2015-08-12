@@ -41,9 +41,28 @@ void WeatherData :: init()
  Spark.function("ghData", greenhouseData);
 }
 
-int greenhouseData(String command)
-{
-    
-}
 
+int greenhouseData(String data)
+    {
+  
+
+    //Expected parameters in CSV format
+    // 1. Unix time stamp
+    // 2. current greenhouse temperature
+    // 3. current greenhouse humidity
+
+    char copyStr[64];
+    data.toCharArray(copyStr,64);
+    char *p = strtok(copyStr, ",");
+
+    weather.weatherTime = atoi(p);
+    p = strtok(NULL,",");
+    weather.greenhouseTemp = atoi(p);
+    p = strtok(NULL,",");
+    weather.greenhouseHumidity = atoi(p);
+
+
+
+return 1;
+}
  
