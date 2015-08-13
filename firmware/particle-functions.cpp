@@ -1,6 +1,8 @@
 # include "particle-functions.h"
 # include <application.h>
 
+extern WeatherData weather;
+
 void WeatherData :: message(int data)     // defined outside class definition
 {
  Serial.print("Timestamp: "); Serial.println(_weatherTime);
