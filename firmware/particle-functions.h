@@ -13,6 +13,17 @@ class WeatherData
  // methods 
  void message(int);
  void init();
+ // variables
+ unsigned int weatherTime;
+ int greenhouseTemp;
+ int greenhouseHumidity;
+ int backupGreenhouseTemp;
+ int backupGreenhouseHumidity;
+ int outsideTemp;
+ int outsideHumidity;
+ int high;
+ int low;
+ 
  
  private:
  unsigned int _weatherTime;
