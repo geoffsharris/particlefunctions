@@ -26,7 +26,7 @@ class WeatherData
  int low;
  
  
- private:
+// private:
  unsigned int _weatherTime;
  int _greenhouseTemp;
  int _greenhouseHumidity;
