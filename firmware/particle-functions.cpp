@@ -19,13 +19,14 @@ void WeatherData :: weatherData()
  _backupGreenhouseHumidity = 0;
  _outsideTemp = 0;
  _outsideHumidity = 0;
+  _solar = 0;
  _high = 0;
  _low = 0;
 }
 
 void WeatherData :: weatherData(unsigned int weatherTime, int greenhouseTemp,int greenhouseHumidity,
                                 int backupGreenhouseTemp, int backupGreenhouseHumidity,int outsideTemp, 
-                                int outsideHumidity, int high, int low)
+                                int outsideHumidity, int solar, int high, int low)
  {
  _weatherTime = weatherTime;
  _greenhouseTemp = greenhouseTemp;
@@ -34,6 +35,7 @@ void WeatherData :: weatherData(unsigned int weatherTime, int greenhouseTemp,int
  _backupGreenhouseHumidity = backupGreenhouseHumidity;
  _outsideTemp = outsideTemp;
  _outsideHumidity = outsideHumidity;
+  _solar = solar;
  _high = high;
  _low = low;
  }
@@ -52,18 +54,41 @@ int greenhouseData(String data)
     // 1. Unix time stamp
     // 2. current greenhouse temperature
     // 3. current greenhouse humidity
+    // 4. backup sensor current greenhouse temperature
+    // 5. backup sensor current greenhouse humidity
+    // 6. current outside temperature
+    // 7. current outside humidity
+    // 8. solar radiation
+    // 9. forecast high
+    // 10. forecast low
+    
 
     char copyStr[64];
     data.toCharArray(copyStr,64);
     char *p = strtok(copyStr, ",");
 
-    weather.weatherTime = atoi(p);
+    unsigned int weatherTime = atoi(p);
     p = strtok(NULL,",");
-    weather.greenhouseTemp = atoi(p);
+    int greenhouseTemp = atoi(p);
     p = strtok(NULL,",");
-    weather.greenhouseHumidity = atoi(p);
+    int greenhouseHumidity = atoi(p);
+    p = strtok(NULL,",");
+    int backupGreenhouseTemp = atoi(p);
+    p = strtok(NULL,",");
+    int backupGreenhouseHumidity = atoi(p);
+    p = strtok(NULL,",");
+    int outsideTemp = atoi(p);
+    p = strtok(NULL,",");
+    int outsideHumidity = atoi(p);
+    p = strtok(NULL,",");
+    int solar = atoi(p);
+    p = strtok(NULL,",");
+    int high = atoi(p);
+    p = strtok(NULL,",");
+    int low = atoi(p);
 
-
+    weather.weatherData(weatherTime, greenhouseTemp, greenhouseHumidity, backupGreenhouseTemp,
+                        backupGreenhouseHumidity, outsideTemp, outsideHumidity, solar, high, low);
 
 return 1;
 }
