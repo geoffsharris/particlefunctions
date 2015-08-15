@@ -9,7 +9,7 @@ class WeatherData
  void weatherData();
  void weatherData(unsigned int weatherTime, int greenhouseTemp,int greenhouseHumidity,
                   int backupGreenhouseTemp, int backupGreenhouseHumidity,int outsideTemp,
-                  int outsideHumidity, int high, int low);
+                  int outsideHumidity, int solar, int high, int low);
  // methods 
  void message(int);
  void init();
@@ -21,6 +21,7 @@ class WeatherData
  int backupGreenhouseHumidity;
  int outsideTemp;
  int outsideHumidity;
+ int solar;
  int high;
  int low;
  
@@ -33,6 +34,7 @@ class WeatherData
  int _backupGreenhouseHumidity;
  int _outsideTemp;
  int _outsideHumidity;
+ int _solar;
  int _high;
  int _low;
   
