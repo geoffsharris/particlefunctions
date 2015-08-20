@@ -129,11 +129,11 @@ void particleInit()
 }
 
 // variables used in program
-int tzOffset;
-int AMsetback;
-int PMsetback;
-int dayProgram;
-int nightProgram;
+int tzOffset = -7;
+int AMsetback = 7;
+int PMsetback = 22;
+int dayProgram = 1;
+int nightProgram = 3;
 
 // functions called by time functions
 void MorningAlarm();
