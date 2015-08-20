@@ -12,7 +12,7 @@ class WeatherData
                   int outsideHumidity, int solar, int high, int low);
  // methods 
  void message(int);
- void init();
+ 
  // variables
  unsigned int weatherTime;
  int greenhouseTemp;
