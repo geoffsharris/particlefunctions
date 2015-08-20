@@ -91,7 +91,7 @@ return 1;
 int setSeason(String command) // pass CSV AMsetback, PMsetback, dayProgram, nightProgram
 {
    char copyStr[64];
-    commands.toCharArray(copyStr,64);
+    command.toCharArray(copyStr,64);
     char *p = strtok(copyStr, ",");
 
     AMsetback = atoi(p);
