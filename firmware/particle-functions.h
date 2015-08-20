@@ -40,6 +40,25 @@ class WeatherData
   
 };
 
+// particle functions
 int greenhouseData(String command);
+int setSeason(String command);
+int setDaylightSavings(String command);
+
+// setup functions called in setup()
+void particleInit();
+// time alarms functions 
+void MorningAlarm();
+void EveningAlarm();
+void synchTime();
+// variables used 
+int tzOffset = -7;
+int AMsetback = 7;
+int PMsetback = 15;
+int dayProgram = 1;
+int nightProgram = 3;
+
+
+
 
 #endif
