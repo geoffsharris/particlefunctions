@@ -88,6 +88,30 @@ int greenhouseData(String data)
 return 1;
 }
 
+int setSeason(String command) // pass CSV AMsetback, PMsetback, dayProgram, nightProgram
+{
+   char copyStr[64];
+    commands.toCharArray(copyStr,64);
+    char *p = strtok(copyStr, ",");
+
+    AMsetback = atoi(p);
+    p = strtok(NULL,",");
+    String PMsetback_string = p;
+    PMsetback = atoi(p);
+    p = strtok(NULL,",");
+    dayProgram = atoi(p);
+    p = strtok(NULL,",");
+    nightProgram = atoi(p);
+
+    Alarm.free(0);
+    Alarm.free(1);
+    Alarm.alarmRepeat(AMsetback,0,0, MorningAlarm);
+    Alarm.alarmRepeat(PMsetback,0,0, EveningAlarm);
+    Spark.publish("PMsetback", PMsetback_string);
+
+return 1;
+}
+
 void particleInit()
 {
  // time function setup
@@ -100,3 +124,9 @@ void particleInit()
  Spark.function("test_call",call_function);
  Spark.function("setSeason", setSeason);
 }
+
+int tzOffset;
+int AMsetback;
+int PMsetback;
+int dayProgram;
+int nightProgram;
