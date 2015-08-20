@@ -40,11 +40,6 @@ void WeatherData :: weatherData(unsigned int weatherTime, int greenhouseTemp,int
  _low = low;
  }
 
-void WeatherData :: init()
-{
- Spark.function("ghData", greenhouseData);
-}
-
 
 int greenhouseData(String data)
     {
@@ -92,4 +87,16 @@ int greenhouseData(String data)
 
 return 1;
 }
- 
+
+void particleInit()
+{
+ // time function setup
+  Time.zone(tzOffset);
+  Alarm.alarmRepeat(AMsetback,0,0, MorningAlarm);
+  Alarm.alarmRepeat(PMsetback,0,0, EveningAlarm);
+  
+ // setup particle functions
+ Spark.function("ghData", greenhouseData);
+ Spark.function("test_call",call_function);
+ Spark.function("setSeason", setSeason);
+}
