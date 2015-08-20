@@ -52,11 +52,11 @@ void MorningAlarm();
 void EveningAlarm();
 void synchTime();
 // variables used 
-int tzOffset = -7;
-int AMsetback = 7;
-int PMsetback = 15;
-int dayProgram = 1;
-int nightProgram = 3;
+int tzOffset;
+int AMsetback;
+int PMsetback;
+int dayProgram;
+int nightProgram;
 
 
 
