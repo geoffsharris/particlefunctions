@@ -95,6 +95,7 @@ int setSeason(String command) // pass CSV AMsetback, PMsetback, dayProgram, nigh
     char *p = strtok(copyStr, ",");
 
     AMsetback = atoi(p);
+    String AMsetback_string = p;
     p = strtok(NULL,",");
     String PMsetback_string = p;
     PMsetback = atoi(p);
@@ -107,6 +108,7 @@ int setSeason(String command) // pass CSV AMsetback, PMsetback, dayProgram, nigh
     Alarm.free(1);
     Alarm.alarmRepeat(AMsetback,0,0, MorningAlarm);
     Alarm.alarmRepeat(PMsetback,0,0, EveningAlarm);
+    Spark.publish("AMsetback", AMsetback_string);
     Spark.publish("PMsetback", PMsetback_string);
 
 return 1;
@@ -118,6 +120,7 @@ void particleInit()
   Time.zone(tzOffset);
   Alarm.alarmRepeat(AMsetback,0,0, MorningAlarm);
   Alarm.alarmRepeat(PMsetback,0,0, EveningAlarm);
+  Alarm.alarmRepeat(0,0,0, synchTime);
   
  // setup particle functions
  Spark.function("ghData", greenhouseData);
@@ -125,8 +128,26 @@ void particleInit()
  Spark.function("setSeason", setSeason);
 }
 
+// variables used in program
 int tzOffset;
 int AMsetback;
 int PMsetback;
 int dayProgram;
 int nightProgram;
+
+// functions called by time functions
+void MorningAlarm();
+{
+ 
+}
+void EveningAlarm();
+{
+ 
+}
+
+// called once per day at midnight to synch photon
+void synchTime();
+{
+ Spark.syncTime();
+}
+
