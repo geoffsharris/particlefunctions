@@ -1,61 +1,92 @@
-#ifndef WEATHERDATA_H
-#define WEATHERDATA_H
-#include <application.h>
+# include "weather.h"
+# include <application.h>
 
-// setup class to hold weather data and functions to get data
-// load information by calling weatherData() and passing variables
-// get data by calling vaious functions to return data values
-// no need to initialize object in main portion of program
-// should set up object named "weather" to call for information - example weather.greenhouseTemp();
-// will return current greenhouse temeprature
+WeatherData weather; // creates weather object
 
-class WeatherData
+void WeatherData :: message(int data)     // this is just for testing, can be removed later
 {
- public:
- // constructors
- void weatherData();
- void weatherData(unsigned int weatherTime, int greenhouseTemp,int greenhouseHumidity,
-                  int backupGreenhouseTemp, int backupGreenhouseHumidity,int outsideTemp,
-                  int outsideHumidity, int solar, int high, int low);
- // methods 
- void message(int);
- unsigned int weatherTime();
- int greenhouseTemp();
- int greenhouseHumidity();
- int backupGreenhouseTemp();
- int backupGreenhouseHumidity();
- int outsideTemp();
- int outsideHumidity();
- int solar();
- int high();
- int low();
- 
- // variables
- unsigned int m_weatherTime;
- int m_greenhouseTemp;
- int m_greenhouseHumidity;
- int m_backupGreenhouseTemp;
- int m_backupGreenhouseHumidity;
- int m_outsideTemp;
- int m_outsideHumidity;
- int m_solar;
- int m_high;
- int m_low;
- 
- 
-// private:
- unsigned int _weatherTime;
- int _greenhouseTemp;
- int _greenhouseHumidity;
- int _backupGreenhouseTemp;
- int _backupGreenhouseHumidity;
- int _outsideTemp;
- int _outsideHumidity;
- int _solar;
- int _high;
- int _low;
-  
-};
-extern WeatherData weather;
+ Serial.print("Timestamp: "); Serial.println(_weatherTime);
+ Serial.print("Temp (F): "); Serial.println(_greenhouseTemp);
+ Serial.print("Humidity (%): "); Serial.println(_greenhouseHumidity);
+}
 
-#endif
+void WeatherData :: weatherData()
+{
+ _weatherTime = 0;
+ _greenhouseTemp = 0;
+ _greenhouseHumidity = 0;
+ _backupGreenhouseTemp = 0;
+ _backupGreenhouseHumidity = 0;
+ _outsideTemp = 0;
+ _outsideHumidity = 0;
+ _solar = 0;
+ _high = 0;
+ _low = 0;
+}
+
+void WeatherData :: weatherData(unsigned int weatherTime, int greenhouseTemp,int greenhouseHumidity,
+                                int backupGreenhouseTemp, int backupGreenhouseHumidity,int outsideTemp, 
+                                int outsideHumidity, int solar, int high, int low)
+ {
+ _weatherTime = weatherTime;
+ _greenhouseTemp = greenhouseTemp;
+ _greenhouseHumidity = greenhouseHumidity;
+ _backupGreenhouseTemp = backupGreenhouseTemp;
+ _backupGreenhouseHumidity = backupGreenhouseHumidity;
+ _outsideTemp = outsideTemp;
+ _outsideHumidity = outsideHumidity;
+ _solar = solar;
+ _high = high;
+ _low = low;
+ }
+
+
+unsigned int WeatherData :: weatherTime()
+{
+    return _weatherTime;
+}
+
+int WeatherData :: greenhouseTemp()
+{
+    return _greenhouseTemp;
+}
+
+int WeatherData :: greenhouseHumidity()
+{
+    return _greenhouseHumidity;
+}
+
+int WeatherData :: backupGreenhouseTemp()
+{
+    return _backupGreenhouseTemp;
+}
+
+int WeatherData :: backupGreenhouseHumidity()
+{
+    return _backupGreenhouseHumidity;
+}
+
+int WeatherData :: outsideTemp()
+{
+    return _outsideTemp;
+}
+
+int WeatherData :: outsideHumidity()
+{
+    return _outsideHumidity;
+}
+
+int WeatherData :: solar()
+{
+    return _solar;
+}
+
+int WeatherData :: high()
+{
+    return _high;
+}
+
+int WeatherData :: low()
+{
+    return _low;
+}
