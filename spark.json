@@ -2,6 +2,6 @@
   "name": "weather",
   "author": "Geoff Harris",
   "license": "MIT",
-  "version": "0.0.12",
-  "description": "Particle function library to pass data from home automation system"
+  "version": "0.0.1",
+  "description": "Particle function library to store weather data for home automation system"
 }
