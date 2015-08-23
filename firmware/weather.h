@@ -2,6 +2,13 @@
 #define WEATHERDATA_H
 #include <application.h>
 
+// setup class to hold weather data and functions to get data
+// load information by calling weatherData() and passing variables
+// get data by calling vaious functions to return data values
+// no need to initialize object in main portion of program
+// should set up object named "weather" to call for information - example weather.greenhouseTemp();
+// will return current greenhouse temeprature
+
 class WeatherData
 {
  public:
@@ -12,18 +19,28 @@ class WeatherData
                   int outsideHumidity, int solar, int high, int low);
  // methods 
  void message(int);
+ unsigned int weatherTime();
+ int greenhouseTemp();
+ int greenhouseHumidity();
+ int backupGreenhouseTemp();
+ int backupGreenhouseHumidity();
+ int outsideTemp();
+ int outsideHumidity();
+ int solar();
+ int high();
+ int low();
  
  // variables
- unsigned int weatherTime;
- int greenhouseTemp;
- int greenhouseHumidity;
- int backupGreenhouseTemp;
- int backupGreenhouseHumidity;
- int outsideTemp;
- int outsideHumidity;
- int solar;
- int high;
- int low;
+ unsigned int m_weatherTime;
+ int m_greenhouseTemp;
+ int m_greenhouseHumidity;
+ int m_backupGreenhouseTemp;
+ int m_backupGreenhouseHumidity;
+ int m_outsideTemp;
+ int m_outsideHumidity;
+ int m_solar;
+ int m_high;
+ int m_low;
  
  
 // private:
@@ -39,26 +56,6 @@ class WeatherData
  int _low;
   
 };
-
-// particle functions
-int greenhouseData(String command);
-int setSeason(String command);
-int setDaylightSavings(String command);
-
-// setup functions called in setup()
-void particleInit();
-// time alarms functions 
-void MorningAlarm();
-void EveningAlarm();
-void synchTime();
-// variables used 
-int tzOffset;
-int AMsetback;
-int PMsetback;
-int dayProgram;
-int nightProgram;
-
-
-
+extern WeatherData weather;
 
 #endif
