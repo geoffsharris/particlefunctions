@@ -14,12 +14,13 @@ class WeatherData
  public:
  // constructors
  void weatherData();
- void weatherData(unsigned int weatherTime, int greenhouseTemp,int greenhouseHumidity,
+ void weatherData(unsigned int weatherTime, unsigned int weatherTransmitTime, int greenhouseTemp,int greenhouseHumidity,
                   int backupGreenhouseTemp, int backupGreenhouseHumidity,int outsideTemp,
                   int outsideHumidity, int solar, int high, int low);
  // methods 
  void message(int);
  unsigned int weatherTime();
+ unsigned int weatherTransmitTime();
  int greenhouseTemp();
  int greenhouseHumidity();
  int backupGreenhouseTemp();
@@ -32,6 +33,7 @@ class WeatherData
  
  // variables
  unsigned int m_weatherTime;
+ unsigned int m_weatherTransmitTime;
  int m_greenhouseTemp;
  int m_greenhouseHumidity;
  int m_backupGreenhouseTemp;
@@ -45,6 +47,7 @@ class WeatherData
  
 // private:
  unsigned int _weatherTime;
+ unsigned int _weatherTransmitTime;
  int _greenhouseTemp;
  int _greenhouseHumidity;
  int _backupGreenhouseTemp;
@@ -56,6 +59,6 @@ class WeatherData
  int _low;
   
 };
-extern WeatherData weather;
+extern WeatherData weatherstation;
 
 #endif
